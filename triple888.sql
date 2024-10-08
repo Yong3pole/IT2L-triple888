@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 06, 2024 at 02:02 PM
+-- Generation Time: Oct 08, 2024 at 08:06 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -103,8 +103,8 @@ INSERT INTO `inventory` (`inventory_id`, `prod_id`, `quantity`, `threshold`, `la
 (3, 36, 16, 25, NULL),
 (4, 1, 35, NULL, NULL),
 (5, 2, 94, NULL, NULL),
-(6, 3, 19, NULL, NULL),
-(7, 4, 70, NULL, NULL),
+(6, 3, 18, NULL, NULL),
+(7, 4, 69, NULL, NULL),
 (8, 5, 100, NULL, NULL),
 (9, 6, 175, NULL, NULL),
 (11, 8, 30, NULL, NULL),
@@ -149,56 +149,56 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`prod_id`, `prod_name`, `prod_brand`, `prod_manufacturer`, `prod_category`, `prod_form`, `prod_dosage`, `prod_price`, `prod_archive`) VALUES
-(1, 'Loperamide', 'Diatabs', 'Unilab', 'Drug', 'Tablet', '2 mg', 7.5, 1),
-(2, 'Ibuprofen', 'Advil', 'Wyeth', 'Analgesics', 'Tablet', '200 mg', 10, 1),
-(3, 'Amoxicillin', 'Amoxil', 'Abiolex', 'Antibiotic', 'Tablet', '250mg', 20, 1),
-(4, 'Carbocisteine', 'Solmux', 'Unilab', 'Mucolytics', 'Tablet', '500mg', 12.31, 1),
-(5, 'Paracetamol', 'Neozep', 'Unilab', 'Analgesics', 'Syrup', '50 mL', 55, 1),
-(6, 'Losartan', 'Lifezar', 'Ritemed', 'Antihypertensive', 'Tablet', '100mg', 25.25, 1),
-(7, 'Losartan', 'Angel-50', 'Ritemed', 'Antihypertensive', 'Tablet', '50mg', 5.5, 1),
-(8, 'Losartan', 'Gensartan', 'Medinova', 'Antihypertensive', 'Tablet', '50mg', 6, 1),
-(9, 'Paracetamol', 'Panadol', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 1),
-(10, 'Ibuprofen', 'Advil', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 1),
-(11, 'Amoxicillin', 'Amoxil', 'Bristol-Myers Squibb', 'Antibiotic', 'Capsule', '500mg', 10, 1),
-(12, 'Cetrizine', 'Zyrtec', 'UCB', 'Antihistamine', 'Tablet', '10mg', 6.5, 1),
-(13, 'Metformin', 'Glucophage', 'Boehringer Ingelheim', 'Diabetes', 'Tablet', '500mg', 15, 1),
-(14, 'Lisinopril', 'Prinivil', 'Merck', 'Hypertension', 'Tablet', '10mg', 7, 1),
+(1, 'Loperamide', 'Diatabs', 'Unilab', 'Drug', 'Tablet', '2 mg', 7.5, 0),
+(2, 'Ibuprofen', 'Advil', 'Wyeth', 'Analgesics', 'Tablet', '200 mg', 10, 0),
+(3, 'Amoxicillin', 'Ammoron', 'Abiolex', 'Antibiotic', 'Tablet', '250mg', 20, 0),
+(4, 'Carbocisteine', 'Solmux', 'Unilab', 'Mucolytics', 'Tablet', '500mg', 12.31, 0),
+(5, 'Paracetamol', 'Neozep', 'Unilab', 'Analgesics', 'Syrup', '50 mL', 55, 0),
+(6, 'Losartan', 'Lifezar', 'Ritemed', 'Antihypertensive', 'Tablet', '100mg', 25.25, 0),
+(7, 'Losartan', 'Angel-50', 'Ritemed', 'Antihypertensive', 'Tablet', '50mg', 5.5, 0),
+(8, 'Losartan', 'Gensartan', 'Medinova', 'Antihypertensive', 'Tablet', '50mg', 6, 0),
+(9, 'Paracetamol', 'Panadol', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 0),
+(10, 'Ibuprofen', 'Advil', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 0),
+(11, 'Amoxicillin', 'Amoxil', 'Bristol-Myers Squibb', 'Antibiotic', 'Capsule', '50mg', 10, 0),
+(12, 'Cetrizine', 'Zywoo', 'UCB', 'Antihistamine', 'Tablet', '10mg', 6.5, 0),
+(13, 'Metformin', 'Glucophage', 'Boehringer Ingelheim', 'Diabetes', 'Tablet', '500mg', 15, 0),
+(14, 'Lisinopril', 'Prinivil', 'Merck', 'Hypertension', 'Tablet', '10mg', 7, 0),
 (15, 'Simvastatin', 'Zocor', 'Merck', 'Cholesterol', 'Tablet', '20mg', 12, 1),
-(16, 'Omeprazole', 'Prilosec', 'AstraZeneca', 'Acid Reducer', 'Capsule', '20mg', 9, 1),
-(17, 'Aspirin', 'Bayer', 'Bayer', 'Pain Relief', 'Tablet', '81mg', 4, 1),
-(18, 'Diphenhydramine', 'Benadryl', 'Pfizer', 'Antihistamine', 'Tablet', '25mg', 5.5, 1),
-(19, 'Paracetamol', 'Panadol', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 1),
-(20, 'Ibuprofen', 'Advil', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 1),
-(21, 'Amoxicillin', 'Amoxil', 'Bristol-Myers Squibb', 'Antibiotic', 'Capsule', '500mg', 100, 1),
+(16, 'Omeprazole', 'Prilosec', 'AstraZeneca', 'Acid Reducer', 'Capsule', '20mg', 9, 0),
+(17, 'Aspirin', 'Aspoo', 'Bayer', 'Pain Relief', 'Tablet', '81mg', 4, 0),
+(18, 'Diphenhydramine', 'Benadryl', 'Pfizer', 'Antihistamine', 'Tablet', '25mg', 5.5, 0),
+(19, 'Paracetamol', 'Panadol', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 0),
+(20, 'Ibuprofen', 'Advil', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 0),
+(21, 'Amoxicillin', 'Amoxil', 'Bristol-Myers Squibb', 'Antibiotic', 'Capsule', '500mg', 100, 0),
 (22, 'Cetrizine', 'Zyrtec', 'UCB', 'Antihistamine', 'Tablet', '10mg', 6.5, 1),
 (23, 'Metformin', 'Glucophage', 'Boehringer Ingelheim', 'Diabetes', 'Tablet', '500mg', 15, 1),
-(24, 'Lisinopril', 'Prinivil', 'Merck', 'Hypertension', 'Tablet', '10mg', 7, 1),
-(25, 'Simvastatin', 'Zocor', 'Merck', 'Cholesterol', 'Tablet', '20mg', 12, 1),
-(26, 'Omeprazole', 'Prilosec', 'AstraZeneca', 'Acid Reducer', 'Capsule', '20mg', 9, 1),
-(27, 'Aspirin', 'Bayer', 'Bayer', 'Pain Relief', 'Tablet', '81mg', 400, 1),
-(28, 'Diphenhydramine', 'Benadryl', 'Pfizer', 'Antihistamine', 'Tablet', '25mg', 5.5, 1),
-(29, 'Loratadine', 'Claritin', 'Bristol-Myers Squibb', 'Antihistamine', 'Tablet', '10mg', 6, 1),
-(30, 'Naproxen', 'Aleve', 'Bayer', 'Pain Relief', 'Tablet', '250mg', 9.5, 1),
-(31, 'Fluticasone', 'Flonase', 'GSK', 'Nasal Spray', 'Spray', '50mcg', 14, 1),
-(32, 'Levothyroxine', 'Synthroid', 'AbbVie', 'Thyroid', 'Tablet', '50mcg', 11, 1),
-(33, 'Gabapentin', 'Neurontin', 'Pfizer', 'Neuropathic Pain', 'Capsule', '300mg', 13, 1),
-(34, 'Ranitidine', 'Zantac', 'Sanofi', 'Acid Reducer', 'Tablet', '150mg', 8.5, 1),
-(35, 'Hydrochlorothiazide', 'Microzide', 'Boehringer Ingelheim', 'Hypertension', 'Tablet', '25mg', 6, 1),
-(36, 'Sertraline', 'Zoloft', 'Pfizer', 'Antidepressant', 'Tablet', '50mg', 10.5, 1),
-(37, 'Tamsulosin', 'Flomax', 'Boeringer Ingelheim', 'BPH', 'Capsule', '0.4mg', 9, 1),
-(38, 'Montelukast', 'Singulair', 'Merck', 'Asthma', 'Tablet', '10mg', 11.5, 1),
-(39, 'Citalopram', 'Celexa', 'Lundbeck', 'Antidepressant', 'Tablet', '20mg', 9.5, 1),
-(40, 'Duloxetine', 'Cymbalta', 'Eli Lilly', 'Antidepressant', 'Capsule', '30mg', 12, 1),
-(41, 'Ointment', 'Trimycin', 'Unilab', 'Skin Care', 'Ointment', '10g', 290, 1),
-(42, 'Supplement', 'MX3', 'MX3', 'Supplement', 'Tablet', '50mg', 19, 1),
-(43, '123', 'BBBB', 'Ritemed', 'Tambal', 'Drugsss', '100g', 53, 1),
-(44, 'Tambal', 'Foreman', 'Bakal', 'Lata', 'Syrup', '2500mg', 1900, 1),
-(45, 'abcd', '123', '1111', '1111', '1111', '111', 12345.03, 1),
-(46, 'Bayook', '2222', '2222', '3333', '444', '555', 666, 1),
-(47, 'Bakokang', 'Bakokang', 'Bakokang', 'Tambal', 'Tablet', '200mg', 5000, 1),
-(48, 'Wipes', 'Beybiko', 'Wipes', 'Wipes', 'N.A.', '50mg', 5, 1),
-(49, 'AAAAA', 'AAAAA', 'AAAAAA', 'AAAAAAA', 'AAAAA', '333g', 333, 1),
-(50, 'zzzz', 'zzzz', 'zzzz', 'zzz', 'zzzz', 'zzzz', 555, 1);
+(24, 'Lisinopril', 'Prinivil', 'Merck', 'Hypertension', 'Tablet', '10mg', 7, 0),
+(25, 'Simvastatin', 'Zocor', 'Merck', 'Cholesterol', 'Tablet', '20mg', 12, 0),
+(26, 'Omeprazole', 'Prilosec', 'AstraZeneca', 'Acid Reducer', 'Capsule', '20mg', 9, 0),
+(27, 'Aspirin', 'Bayer', 'Bayer', 'Pain Relief', 'Tablet', '81mg', 400, 0),
+(28, 'Diphenhydramine', 'Benadryl', 'Pfizer', 'Antihistamine', 'Tablet', '25mg', 5.5, 0),
+(29, 'Loratadine', 'Claritin', 'Bristol-Myers Squibb', 'Antihistamine', 'Tablet', '10mg', 6, 0),
+(30, 'Naproxen', 'Aleve', 'Bayer', 'Pain Relief', 'Tablet', '250mg', 9.5, 0),
+(31, 'Fluticasone', 'Flonase', 'GSK', 'Nasal Spray', 'Spray', '50mcg', 14, 0),
+(32, 'Levothyroxine', 'Synthroid', 'AbbVie', 'Thyroid', 'Tablet', '50mcg', 11, 0),
+(33, 'Gabapentin', 'Neurontin', 'Pfizer', 'Neuropathic Pain', 'Capsule', '300mg', 13, 0),
+(34, 'Ranitidine', 'Zantac', 'Sanofi', 'Acid Reducer', 'Tablet', '150mg', 8.5, 0),
+(35, 'Hydrochlorothiazide', 'Microzide', 'Boehringer Ingelheim', 'Hypertension', 'Tablet', '25mg', 6, 0),
+(36, 'Sertraline', 'Zoloft', 'Pfizer', 'Antidepressant', 'Tablet', '50mg', 10.5, 0),
+(37, 'Tamsulosin', 'Flomax', 'Boeringer Ingelheim', 'BPH', 'Capsule', '0.4mg', 9, 0),
+(38, 'Montelukast', 'Singulair', 'Merck', 'Asthma', 'Tablet', '100mg', 11.5, 0),
+(39, 'Citalopram', 'Celexa', 'Lundbeck', 'Antidepressant', 'Tablet', '20mg', 9.5, 0),
+(40, 'Duloxetine', 'Cymbalta', 'Eli Lilly', 'Antidepressant', 'Capsule', '30mg', 12, 0),
+(41, 'Ointment', 'Trimycin', 'Unilab', 'Skin Care', 'Ointment', '10g', 290, 0),
+(42, 'Supplement', 'MX3', 'MX3', 'Supplement', 'Tablet', '50mg', 19, 0),
+(43, 'Cough Relief', 'HealthBest', 'HealthCorp', 'Cough Syrup', 'Syrup', '100mL', 53, 0),
+(44, 'Cold Syrup', 'NatureAid', 'NaturePharma', 'Cold Remedy', 'Syrup', '200mL', 1900, 0),
+(45, 'Energy Booster', 'FitLife', 'LifeCorp', 'Supplements', 'Tablet', '500mg', 100, 0),
+(46, 'Vitamins Plus', 'VitalCare', 'WellnessCorp', 'Vitamins', 'Tablet', '100mg', 150, 0),
+(47, 'Pain Reliever', 'MedXtra', 'MediHealth', 'Pain Relief', 'Tablet', '500mg', 50, 0),
+(48, 'Wipes', 'Beybiko', 'CleanCare', 'Wipes', 'Wet Wipes', '10 Pack', 5, 0),
+(49, 'Antiseptic Cream', 'CareFirst', 'FirstAid', 'Skin Care', 'Cream', '50g', 333, 0),
+(50, 'Disinfectant Wipes', 'CleanWell', 'CleanX', 'Wipes', 'Wet Wipes', '50 Pack', 555, 0);
 
 -- --------------------------------------------------------
 
@@ -254,7 +254,8 @@ INSERT INTO `sales` (`sale_id`, `transaction_id`) VALUES
 (68, 11),
 (69, 12),
 (70, 55),
-(71, 56);
+(71, 56),
+(72, 57);
 
 -- --------------------------------------------------------
 
@@ -306,7 +307,9 @@ INSERT INTO `sales_items` (`sale_item_id`, `sale_id`, `prod_id`, `quantity_sold`
 (96, 70, 22, 1, 6.50),
 (97, 71, 21, 1, 100.00),
 (98, 71, 20, 1, 8.00),
-(99, 71, 19, 1, 5.00);
+(99, 71, 19, 1, 5.00),
+(100, 72, 4, 1, 12.31),
+(101, 72, 3, 1, 20.00);
 
 -- --------------------------------------------------------
 
@@ -341,7 +344,8 @@ INSERT INTO `transactions` (`transaction_id`, `transaction_date`, `user_id`, `pa
 (11, '2024-10-05', 3, 'Cash', 157.75, NULL),
 (12, '2024-10-06', 3, 'Cash', 114.50, NULL),
 (55, '2024-10-06', 3, 'Cash', 45.32, 17),
-(56, '2024-10-06', 3, 'Cash', 113.00, NULL);
+(56, '2024-10-06', 3, 'Cash', 113.00, NULL),
+(57, '2024-10-07', 3, 'Cash', 32.31, NULL);
 
 -- --------------------------------------------------------
 
@@ -369,9 +373,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `birthday`, `phone`, `email`, `username`, `password`, `role`, `status`) VALUES
 (1, 'Leoj ', 'Tripole', NULL, '09055501896', 'yong.tripole@gmail.com', 'lthrdoublee', 'tripole23', 'Admin', 1),
 (2, 'Bart', 'Mangum', NULL, '1231231234', 'bart@gmail.com', 'admin', 'admin', 'Admin', 1),
-(3, 'Paulo', 'Medel 2.0', NULL, '11156', 'true.2356@gmail.com', '123', '123', 'User', 0),
+(3, 'Paulo', 'Medel 2.0', NULL, '90876578215', 'true.2356@gmail.com', 'user', 'user', 'User', 1),
 (4, 'Paulo', 'Medel', NULL, '666666666', '66666@gmail.com', 'aaaa', NULL, 'User', 0),
-(5, 'Andrea Nicole', 'Caparas', NULL, '143', 'andreacaps17@gmail.com', 'dwei', NULL, 'Admin', 0),
+(5, 'Andrea Nicole', 'Caparas', NULL, '143', 'andreacaps17@gmail.com', 'andreacaps17', NULL, 'Admin', 0),
 (6, 'Keanu', 'Reeves', '1998-02-23', '911', 'breathtaking@gmail.com', 'superadmin', 'superadmin', 'Admin', 1);
 
 -- --------------------------------------------------------
@@ -507,19 +511,19 @@ ALTER TABLE `receipt`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sale_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `sale_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `sales_items`
 --
 ALTER TABLE `sales_items`
-  MODIFY `sale_item_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `sale_item_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `transaction_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `user`

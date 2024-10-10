@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 08, 2024 at 08:06 PM
+-- Generation Time: Oct 10, 2024 at 10:15 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -99,13 +99,13 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`inventory_id`, `prod_id`, `quantity`, `threshold`, `last_updated`) VALUES
-(2, 5, 230, 250, ''),
-(3, 36, 16, 25, NULL),
-(4, 1, 35, NULL, NULL),
-(5, 2, 94, NULL, NULL),
-(6, 3, 18, NULL, NULL),
+(2, 5, 229, 250, ''),
+(3, 36, 14, 25, NULL),
+(4, 1, 31, NULL, NULL),
+(5, 2, 92, NULL, NULL),
+(6, 3, 17, NULL, NULL),
 (7, 4, 69, NULL, NULL),
-(8, 5, 100, NULL, NULL),
+(8, 5, 99, NULL, NULL),
 (9, 6, 175, NULL, NULL),
 (11, 8, 30, NULL, NULL),
 (12, 9, 57, NULL, NULL),
@@ -119,12 +119,12 @@ INSERT INTO `inventory` (`inventory_id`, `prod_id`, `quantity`, `threshold`, `la
 (20, 17, 108, NULL, NULL),
 (21, 18, 93, NULL, NULL),
 (22, 19, 39, NULL, NULL),
-(23, 20, 147, NULL, NULL),
-(24, 21, 78, NULL, NULL),
+(23, 20, 145, NULL, NULL),
+(24, 21, 77, NULL, NULL),
 (25, 22, 100, NULL, NULL),
-(26, 23, 124, NULL, NULL),
-(27, 24, 157, NULL, NULL),
-(28, 25, 3, NULL, NULL);
+(26, 23, 123, NULL, NULL),
+(27, 24, 154, NULL, NULL),
+(28, 25, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -158,7 +158,7 @@ INSERT INTO `product` (`prod_id`, `prod_name`, `prod_brand`, `prod_manufacturer`
 (7, 'Losartan', 'Angel-50', 'Ritemed', 'Antihypertensive', 'Tablet', '50mg', 5.5, 0),
 (8, 'Losartan', 'Gensartan', 'Medinova', 'Antihypertensive', 'Tablet', '50mg', 6, 0),
 (9, 'Paracetamol', 'Panadol', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 0),
-(10, 'Ibuprofen', 'Advil', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 0),
+(10, 'Ibuprofen', 'Albion', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 0),
 (11, 'Amoxicillin', 'Amoxil', 'Bristol-Myers Squibb', 'Antibiotic', 'Capsule', '50mg', 10, 0),
 (12, 'Cetrizine', 'Zywoo', 'UCB', 'Antihistamine', 'Tablet', '10mg', 6.5, 0),
 (13, 'Metformin', 'Glucophage', 'Boehringer Ingelheim', 'Diabetes', 'Tablet', '500mg', 15, 0),
@@ -166,14 +166,14 @@ INSERT INTO `product` (`prod_id`, `prod_name`, `prod_brand`, `prod_manufacturer`
 (15, 'Simvastatin', 'Zocor', 'Merck', 'Cholesterol', 'Tablet', '20mg', 12, 1),
 (16, 'Omeprazole', 'Prilosec', 'AstraZeneca', 'Acid Reducer', 'Capsule', '20mg', 9, 0),
 (17, 'Aspirin', 'Aspoo', 'Bayer', 'Pain Relief', 'Tablet', '81mg', 4, 0),
-(18, 'Diphenhydramine', 'Benadryl', 'Pfizer', 'Antihistamine', 'Tablet', '25mg', 5.5, 0),
+(18, 'Diphenhydramine', 'Dorit', 'Pfizer', 'Antihistamine', 'Tablet', '25mg', 5.5, 0),
 (19, 'Paracetamol', 'Panadol', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 0),
-(20, 'Ibuprofen', 'Advil', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 0),
-(21, 'Amoxicillin', 'Amoxil', 'Bristol-Myers Squibb', 'Antibiotic', 'Capsule', '500mg', 100, 0),
+(20, 'Ibuprofen', 'Ade', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 0),
+(21, 'Amoxicillin', 'Ambrox', 'Bristol-Myers Squibb', 'Antibiotic', 'Capsule', '500mg', 100, 0),
 (22, 'Cetrizine', 'Zyrtec', 'UCB', 'Antihistamine', 'Tablet', '10mg', 6.5, 1),
 (23, 'Metformin', 'Glucophage', 'Boehringer Ingelheim', 'Diabetes', 'Tablet', '500mg', 15, 1),
 (24, 'Lisinopril', 'Prinivil', 'Merck', 'Hypertension', 'Tablet', '10mg', 7, 0),
-(25, 'Simvastatin', 'Zocor', 'Merck', 'Cholesterol', 'Tablet', '20mg', 12, 0),
+(25, 'Simvastatin', 'Zoom', 'Merck', 'Cholesterol', 'Tablet', '20mg', 12, 0),
 (26, 'Omeprazole', 'Prilosec', 'AstraZeneca', 'Acid Reducer', 'Capsule', '20mg', 9, 0),
 (27, 'Aspirin', 'Bayer', 'Bayer', 'Pain Relief', 'Tablet', '81mg', 400, 0),
 (28, 'Diphenhydramine', 'Benadryl', 'Pfizer', 'Antihistamine', 'Tablet', '25mg', 5.5, 0),
@@ -253,9 +253,19 @@ INSERT INTO `sales` (`sale_id`, `transaction_id`) VALUES
 (67, 10),
 (68, 11),
 (69, 12),
-(70, 55),
-(71, 56),
-(72, 57);
+(70, 13),
+(71, 14),
+(72, 15),
+(73, 16),
+(74, 17),
+(77, 18),
+(78, 19),
+(81, 20),
+(75, 21),
+(76, 22),
+(79, 23),
+(80, 24),
+(82, 25);
 
 -- --------------------------------------------------------
 
@@ -309,7 +319,21 @@ INSERT INTO `sales_items` (`sale_item_id`, `sale_id`, `prod_id`, `quantity_sold`
 (98, 71, 20, 1, 8.00),
 (99, 71, 19, 1, 5.00),
 (100, 72, 4, 1, 12.31),
-(101, 72, 3, 1, 20.00);
+(101, 72, 3, 1, 20.00),
+(102, 73, 5, 1, 55.00),
+(103, 73, 36, 1, 10.50),
+(104, 73, 1, 4, 7.50),
+(105, 73, 2, 1, 10.00),
+(106, 74, 36, 1, 10.50),
+(107, 75, 20, 1, 8.00),
+(108, 76, 21, 1, 100.00),
+(109, 77, 2, 1, 10.00),
+(110, 77, 3, 1, 20.00),
+(111, 78, 24, 1, 7.00),
+(112, 79, 20, 1, 8.00),
+(113, 80, 24, 1, 7.00),
+(114, 81, 24, 1, 7.00),
+(115, 82, 23, 1, 15.00);
 
 -- --------------------------------------------------------
 
@@ -323,6 +347,7 @@ CREATE TABLE `transactions` (
   `user_id` int DEFAULT NULL,
   `payment_method` varchar(50) NOT NULL,
   `total_purchase` decimal(15,2) DEFAULT NULL,
+  `cash_amount` int NOT NULL,
   `customer_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -330,22 +355,32 @@ CREATE TABLE `transactions` (
 -- Dumping data for table `transactions`
 --
 
-INSERT INTO `transactions` (`transaction_id`, `transaction_date`, `user_id`, `payment_method`, `total_purchase`, `customer_id`) VALUES
-(1, '2024-10-05', 3, 'Cash', 65.50, 7),
-(2, '2024-10-05', 3, 'Cash', 28.50, 11),
-(3, '2024-10-05', 3, 'Cash', 80.25, 12),
-(4, '2024-10-05', 3, 'Cash', 57.00, 13),
-(5, '2024-10-05', 3, 'Cash', 30.75, 14),
-(6, '2024-10-05', 3, 'Cash', 49.81, 15),
-(7, '2024-10-05', 3, 'Cash', 71.00, NULL),
-(8, '2024-10-05', 3, 'Cash', 38.00, NULL),
-(9, '2024-10-05', 3, 'Cash', 110.00, NULL),
-(10, '2024-10-05', 3, 'Cash', 40.04, 16),
-(11, '2024-10-05', 3, 'Cash', 157.75, NULL),
-(12, '2024-10-06', 3, 'Cash', 114.50, NULL),
-(55, '2024-10-06', 3, 'Cash', 45.32, 17),
-(56, '2024-10-06', 3, 'Cash', 113.00, NULL),
-(57, '2024-10-07', 3, 'Cash', 32.31, NULL);
+INSERT INTO `transactions` (`transaction_id`, `transaction_date`, `user_id`, `payment_method`, `total_purchase`, `cash_amount`, `customer_id`) VALUES
+(1, '2024-10-05', 3, 'Cash', 65.50, 0, 7),
+(2, '2024-10-05', 3, 'Cash', 28.50, 0, 11),
+(3, '2024-10-05', 3, 'Cash', 80.25, 0, 12),
+(4, '2024-10-05', 3, 'Cash', 57.00, 0, 13),
+(5, '2024-10-05', 3, 'Cash', 30.75, 0, 14),
+(6, '2024-10-05', 3, 'Cash', 49.81, 0, 15),
+(7, '2024-10-05', 3, 'Cash', 71.00, 0, NULL),
+(8, '2024-10-05', 3, 'Cash', 38.00, 0, NULL),
+(9, '2024-10-05', 3, 'Cash', 110.00, 0, NULL),
+(10, '2024-10-05', 3, 'Cash', 40.04, 0, 16),
+(11, '2024-10-05', 3, 'Cash', 157.75, 0, NULL),
+(12, '2024-10-06', 3, 'Cash', 114.50, 0, NULL),
+(13, '2024-10-06', 3, 'Cash', 45.32, 0, 17),
+(14, '2024-10-06', 3, 'Cash', 113.00, 0, NULL),
+(15, '2024-10-07', 3, 'Cash', 32.31, 0, NULL),
+(16, '2024-10-10', 3, 'Cash', 105.50, 0, NULL),
+(17, '2024-10-10', 3, 'Cash', 10.50, 0, NULL),
+(18, '2024-10-10', 3, 'Cash', 30.00, 0, NULL),
+(19, '2024-10-10', 3, 'Cash', 7.00, 0, NULL),
+(20, '2024-10-10', 3, 'Cash', 7.00, 100, NULL),
+(21, '2024-10-10', 3, 'Cash', 8.00, 10, NULL),
+(22, '2024-10-10', 3, 'Cash', 100.00, 20, NULL),
+(23, '2024-10-10', 3, 'Cash', 8.00, 10, NULL),
+(24, '2024-10-10', 3, 'Cash', 7.00, 10, NULL),
+(25, '2024-10-10', 3, 'Cash', 15.00, 20, NULL);
 
 -- --------------------------------------------------------
 
@@ -372,11 +407,12 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `birthday`, `phone`, `email`, `username`, `password`, `role`, `status`) VALUES
 (1, 'Leoj ', 'Tripole', NULL, '09055501896', 'yong.tripole@gmail.com', 'lthrdoublee', 'tripole23', 'Admin', 1),
-(2, 'Bart', 'Mangum', NULL, '1231231234', 'bart@gmail.com', 'admin', 'admin', 'Admin', 1),
-(3, 'Paulo', 'Medel 2.0', NULL, '90876578215', 'true.2356@gmail.com', 'user', 'user', 'User', 1),
-(4, 'Paulo', 'Medel', NULL, '666666666', '66666@gmail.com', 'aaaa', NULL, 'User', 0),
-(5, 'Andrea Nicole', 'Caparas', NULL, '143', 'andreacaps17@gmail.com', 'andreacaps17', NULL, 'Admin', 0),
-(6, 'Keanu', 'Reeves', '1998-02-23', '911', 'breathtaking@gmail.com', 'superadmin', 'superadmin', 'Admin', 1);
+(2, 'Bart', 'Mangum', NULL, '12312312345', 'bart@gmail.com', 'admin', 'admin', 'Admin', 1),
+(3, 'Paulo', 'Medel 2.0', '2024-10-10', '90876578215', 'true.2356@gmail.com', 'user', 'user', 'User', 1),
+(4, 'Paulo', 'Medel', NULL, '66666666677', '66666@gmail.com', 'aaaa', NULL, 'User', 0),
+(5, 'Andrea Nicole', 'Caparas', NULL, '14366891011', 'andreacaps17@gmail.com', 'andreacaps17', NULL, 'Admin', 0),
+(6, 'Keanu', 'Reeves', '1998-02-23', '911', 'breathtaking@gmail.com', 'superadmin', 'superadmin', 'Admin', 1),
+(7, 'Blocked', 'User ', NULL, '11122233344', 'blocked+user@gmail.com', 'inactive', NULL, 'User', 0);
 
 -- --------------------------------------------------------
 
@@ -430,7 +466,8 @@ ALTER TABLE `product_history`
 -- Indexes for table `receipt`
 --
 ALTER TABLE `receipt`
-  ADD PRIMARY KEY (`receipt_no`);
+  ADD PRIMARY KEY (`receipt_no`),
+  ADD KEY `receipt to transaction` (`transaction_id`);
 
 --
 -- Indexes for table `sales`
@@ -511,25 +548,25 @@ ALTER TABLE `receipt`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sale_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `sale_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `sales_items`
 --
 ALTER TABLE `sales_items`
-  MODIFY `sale_item_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `sale_item_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `transaction_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_history`
@@ -552,6 +589,12 @@ ALTER TABLE `batch`
 --
 ALTER TABLE `inventory`
   ADD CONSTRAINT `inv update med_id` FOREIGN KEY (`prod_id`) REFERENCES `product` (`prod_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `receipt`
+--
+ALTER TABLE `receipt`
+  ADD CONSTRAINT `receipt to transaction` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`transaction_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `sales`

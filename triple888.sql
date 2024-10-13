@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 13, 2024 at 05:18 PM
+-- Generation Time: Oct 13, 2024 at 07:23 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -112,7 +112,7 @@ INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_contact`, `dis
 
 CREATE TABLE `inventory` (
   `inventory_id` int NOT NULL,
-  `prod_id` int NOT NULL,
+  `prod_id` int DEFAULT NULL,
   `quantity` int DEFAULT NULL,
   `threshold` int DEFAULT NULL,
   `last_updated` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
@@ -125,30 +125,29 @@ CREATE TABLE `inventory` (
 INSERT INTO `inventory` (`inventory_id`, `prod_id`, `quantity`, `threshold`, `last_updated`) VALUES
 (2, 5, 214, 250, ''),
 (3, 36, 11, 25, NULL),
-(4, 1, 25, NULL, NULL),
-(5, 2, 81, NULL, NULL),
-(6, 3, 12, NULL, NULL),
-(7, 4, 59, NULL, NULL),
-(8, 5, 84, NULL, NULL),
+(4, 1, 25, 50, NULL),
+(5, 2, 81, 100, NULL),
+(6, 3, 120, NULL, NULL),
+(7, 4, 100, 100, NULL),
 (9, 6, 147, NULL, NULL),
 (11, 8, 25, NULL, NULL),
-(12, 9, 55, NULL, NULL),
-(13, 10, 12, NULL, NULL),
-(14, 11, 57, NULL, NULL),
+(12, 9, 55, 55, NULL),
+(13, 10, 120, 50, NULL),
+(14, 11, 57, 100, NULL),
 (15, 12, 81, NULL, NULL),
 (16, 13, 40, NULL, NULL),
 (17, 14, 50, NULL, NULL),
 (18, 15, 32, NULL, NULL),
 (19, 16, 63, NULL, NULL),
-(20, 17, 98, NULL, NULL),
+(20, 17, 0, NULL, NULL),
 (21, 18, 86, NULL, NULL),
-(22, 19, 36, NULL, NULL),
+(22, 19, 0, NULL, NULL),
 (23, 20, 136, NULL, NULL),
 (24, 21, 68, NULL, NULL),
 (25, 22, 94, NULL, NULL),
 (26, 23, 112, NULL, NULL),
 (27, 24, 136, NULL, NULL),
-(28, 25, 0, NULL, NULL);
+(28, 25, 100, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -181,14 +180,14 @@ INSERT INTO `product` (`prod_id`, `prod_name`, `prod_brand`, `prod_manufacturer`
 (6, 'Losartan', 'Lifezar', 'Ritemed', 'Antihypertensive', 'Tablet', '100mg', 25.25, 0),
 (7, 'Losartan', 'Angel-50', 'Ritemed', 'Antihypertensive', 'Tablet', '50mg', 5.5, 0),
 (8, 'Losartan', 'Gensartan', 'Medinova', 'Antihypertensive', 'Tablet', '50mg', 6, 0),
-(9, 'Paracetamol', 'Panadol', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 0),
+(9, 'Paracetamol', 'Aigoo', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 0),
 (10, 'Ibuprofen', 'Albion', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 0),
 (11, 'Amoxicillin', 'Amoxil', 'Bristol-Myers Squibb', 'Antibiotic', 'Capsule', '50mg', 10, 0),
 (12, 'Cetrizine', 'Zywoo', 'UCB', 'Antihistamine', 'Tablet', '10mg', 6.5, 0),
-(13, 'Metformin', 'Glucophage', 'Boehringer Ingelheim', 'Diabetes', 'Tablet', '500mg', 15, 0),
-(14, 'Lisinopril', 'Prinivil', 'Merck', 'Hypertension', 'Tablet', '10mg', 7, 0),
+(13, 'Metformin', 'Boehringer', 'Boehringer Ingelheim', 'Diabetes', 'Tablet', '500mg', 15, 0),
+(14, 'Lisinopril', 'Kaye', 'Merck', 'Hypertension', 'Tablet', '10mg', 7, 0),
 (15, 'Simvastatin', 'Zocor', 'Merck', 'Cholesterol', 'Tablet', '20mg', 12, 1),
-(16, 'Omeprazole', 'Prilosec', 'AstraZeneca', 'Acid Reducer', 'Capsule', '20mg', 9, 0),
+(16, 'Omeprazole', 'Pie', 'AstraZeneca', 'Acid Reducer', 'Capsule', '20mg', 9, 0),
 (17, 'Aspirin', 'Aspoo', 'Bayer', 'Pain Relief', 'Tablet', '81mg', 4, 0),
 (18, 'Diphenhydramine', 'Dorit', 'Pfizer', 'Antihistamine', 'Tablet', '25mg', 5.5, 0),
 (19, 'Paracetamol', 'Panadol', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 0),

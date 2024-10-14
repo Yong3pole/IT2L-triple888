@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 13, 2024 at 07:23 PM
+-- Generation Time: Oct 14, 2024 at 03:58 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -102,7 +102,11 @@ INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_contact`, `dis
 (38, '', '', 0),
 (39, '', '', 0),
 (40, '', '', 0),
-(41, '', '', 0);
+(41, '', '', 0),
+(42, '', '', 0),
+(43, '', '', 0),
+(44, '', '', 0),
+(45, '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -124,7 +128,7 @@ CREATE TABLE `inventory` (
 
 INSERT INTO `inventory` (`inventory_id`, `prod_id`, `quantity`, `threshold`, `last_updated`) VALUES
 (2, 5, 214, 250, ''),
-(3, 36, 11, 25, NULL),
+(3, 36, 10, 25, NULL),
 (4, 1, 25, 50, NULL),
 (5, 2, 81, 100, NULL),
 (6, 3, 120, NULL, NULL),
@@ -142,9 +146,9 @@ INSERT INTO `inventory` (`inventory_id`, `prod_id`, `quantity`, `threshold`, `la
 (20, 17, 0, NULL, NULL),
 (21, 18, 86, NULL, NULL),
 (22, 19, 0, NULL, NULL),
-(23, 20, 136, NULL, NULL),
+(23, 20, 127, NULL, NULL),
 (24, 21, 68, NULL, NULL),
-(25, 22, 94, NULL, NULL),
+(25, 22, 67, NULL, NULL),
 (26, 23, 112, NULL, NULL),
 (27, 24, 136, NULL, NULL),
 (28, 25, 100, NULL, NULL);
@@ -320,7 +324,11 @@ INSERT INTO `receipt` (`receipt_no`, `transaction_id`) VALUES
 (65, 132),
 (66, 133),
 (67, 134),
-(68, 135);
+(68, 135),
+(69, 136),
+(70, 137),
+(71, 138),
+(72, 139);
 
 -- --------------------------------------------------------
 
@@ -472,7 +480,11 @@ INSERT INTO `sales` (`sale_id`, `transaction_id`) VALUES
 (189, 132),
 (190, 133),
 (191, 134),
-(192, 135);
+(192, 135),
+(193, 136),
+(194, 137),
+(195, 138),
+(196, 139);
 
 -- --------------------------------------------------------
 
@@ -704,7 +716,11 @@ INSERT INTO `sales_items` (`sale_item_id`, `sale_id`, `prod_id`, `quantity_sold`
 (276, 191, 22, 2, 6.50),
 (277, 191, 23, 2, 15.00),
 (278, 191, 24, 1, 7.00),
-(279, 192, 6, 1, 25.25);
+(279, 192, 6, 1, 25.25),
+(280, 193, 36, 1, 10.50),
+(281, 194, 20, 9, 8.00),
+(282, 195, 22, 7, 6.50),
+(283, 196, 22, 20, 6.50);
 
 -- --------------------------------------------------------
 
@@ -861,7 +877,11 @@ INSERT INTO `transactions` (`transaction_id`, `transaction_date`, `user_id`, `pa
 (132, '2024-10-13', 3, 'Cash', 12.31, 15.00, 38),
 (133, '2024-10-13', 3, 'Cash', 327.25, 350.00, 39),
 (134, '2024-10-13', 3, 'Cash', 565.06, 1000.00, 40),
-(135, '2024-10-14', 3, 'Cash', 25.25, 26.00, 41);
+(135, '2024-10-14', 3, 'Cash', 25.25, 26.00, 41),
+(136, '2024-10-14', 4, 'Cash', 10.50, 11.00, 42),
+(137, '2024-10-14', 3, 'Cash', 72.00, 100.00, 43),
+(138, '2024-10-14', 3, 'Cash', 45.50, 50.00, 44),
+(139, '2024-10-14', 3, 'Cash', 130.00, 150.00, 45);
 
 -- --------------------------------------------------------
 
@@ -888,12 +908,12 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `birthday`, `phone`, `email`, `username`, `password`, `role`, `status`) VALUES
 (1, 'Leoj ', 'Tripole', NULL, '09055501896', 'yong.tripole@gmail.com', 'lthrdoublee', 'tripole23', 'Admin', 1),
-(2, 'Bart', 'Mangum', NULL, '12312312345', 'bart@gmail.com', 'admin', 'admin', 'Admin', 1),
-(3, 'Paulo', 'Ledem', '2024-10-10', '90876578215', 'true.2356@gmail.com', 'user', 'user', 'User', 1),
-(4, 'Paulo', 'Medel', NULL, '66666666677', '66666@gmail.com', 'user2', 'user2', 'User', 1),
+(2, 'Bart', 'Mangum', NULL, '12312312345', 'bart@gmail.com', 'adminusername', 'adminpassword', 'Admin', 1),
+(3, 'Paulo', 'Ledem', '2024-10-10', '90876578215', 'true.2356@gmail.com', 'usercashier', 'usercashier', 'User', 1),
+(4, 'Paulo', 'Medel', NULL, '66666666677', '66666@gmail.com', 'userpharmacist', 'userpharmacist', 'User', 1),
 (5, 'Andrea Nicole', 'Caparas', NULL, '14366891011', 'andreacaps17@gmail.com', 'andreacaps17', NULL, 'Admin', 0),
 (6, 'Keanu', 'Reeves', '1998-02-23', '99999999999', 'breathtaking@gmail.com', 'superadmin', 'superadmin', 'Admin', 1),
-(7, 'Blocked', 'User ', NULL, '11122233344', 'blocked+user@gmail.com', 'inactive', NULL, 'User', 0);
+(7, 'Blocked', 'User ', NULL, '11122233344', 'blocked+user@gmail.com', 'inactivelang', NULL, 'User', 0);
 
 -- --------------------------------------------------------
 
@@ -1001,7 +1021,7 @@ ALTER TABLE `batch`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `customer_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -1025,25 +1045,25 @@ ALTER TABLE `product_history`
 -- AUTO_INCREMENT for table `receipt`
 --
 ALTER TABLE `receipt`
-  MODIFY `receipt_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `receipt_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sale_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
+  MODIFY `sale_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
 
 --
 -- AUTO_INCREMENT for table `sales_items`
 --
 ALTER TABLE `sales_items`
-  MODIFY `sale_item_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=280;
+  MODIFY `sale_item_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=284;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `transaction_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT for table `user`

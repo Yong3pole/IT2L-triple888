@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 15, 2024 at 05:40 PM
+-- Generation Time: Oct 15, 2024 at 10:33 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -41,19 +41,19 @@ CREATE TABLE `batch` (
 --
 
 INSERT INTO `batch` (`batch_id`, `prod_id`, `batch_number`, `expiry_date`, `batch_quantity`, `batch_status`) VALUES
-(1, 4, 2001, '2024-09-30', 300, 'expired'),
-(2, 2, 2001, '2024-09-25', 175, 'sold'),
+(1, 4, 2001, '2024-09-30', 300, 'ENDORSED'),
+(2, 2, 2001, '2024-09-25', 175, 'EXPIRED'),
 (3, 47, 2002, '2024-12-06', 75, NULL),
-(4, 44, 2002, '2024-11-06', 5, 'sold'),
-(5, 40, 2003, '2024-10-30', 60, NULL),
-(2004, 41, NULL, '2024-10-31', 200, NULL),
-(2005, 41, NULL, '2024-10-31', 200, NULL),
-(2006, 3, NULL, '2024-10-25', 20, NULL),
+(4, 44, 2002, '2024-11-06', 5, 'SOLD'),
+(5, 40, 2003, '2024-10-05', 60, 'EXPIRED'),
+(2004, 41, NULL, '2024-10-31', 200, 'REMOVED'),
+(2005, 41, NULL, '2024-10-31', 200, 'ENDORSED'),
+(2006, 3, NULL, '2024-10-14', 20, 'ENDORSED'),
 (2007, 3, NULL, '2024-11-13', 100, NULL),
 (2008, 3, NULL, '2024-11-13', 100, NULL),
 (2009, 3, NULL, '2024-10-31', 80, NULL),
 (2010, 3, NULL, '2024-11-28', 80, NULL),
-(2011, 44, NULL, '2024-10-19', 5, NULL),
+(2011, 44, NULL, '2024-10-14', 5, 'EXPIRED'),
 (2012, 34, NULL, '2024-11-30', 25, NULL),
 (2013, 25, NULL, '2024-11-30', 100, NULL),
 (2014, 15, NULL, '2024-12-31', 50, NULL),
@@ -185,6 +185,7 @@ CREATE TABLE `product` (
   `prod_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `prod_brand` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `prod_manufacturer` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `med_type` varchar(50) DEFAULT NULL,
   `prod_category` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `prod_form` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `prod_dosage` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -196,57 +197,57 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`prod_id`, `prod_name`, `prod_brand`, `prod_manufacturer`, `prod_category`, `prod_form`, `prod_dosage`, `prod_price`, `prod_archive`) VALUES
-(1, 'Loperamide', 'Diatabs', 'Unilab', 'Drug', 'Tablet', '2 mg', 7.5, 0),
-(2, 'Ibuprofen', 'Advil', 'Wyeth', 'Analgesics', 'Tablet', '200 mg', 10, 0),
-(3, 'Amoxicillin', 'Ammoron', 'Abiolex', 'Antibiotic', 'Tablet', '250mg', 20, 0),
-(4, 'Carbocisteine', 'Solmux', 'Unilab', 'Mucolytics', 'Tablet', '500mg', 12.31, 0),
-(5, 'Paracetamol', 'Neozep', 'Unilab', 'Analgesics', 'Syrup', '50 mL', 55, 0),
-(6, 'Losartan', 'Lifezar', 'Ritemed', 'Antihypertensive', 'Tablet', '100mg', 25.25, 0),
-(7, 'Losartan', 'Angel-50', 'Ritemed', 'Antihypertensive', 'Tablet', '50mg', 5.5, 0),
-(8, 'Losartan', 'Gensartan', 'Medinova', 'Antihypertensive', 'Tablet', '50mg', 6, 0),
-(9, 'Paracetamol', 'Aigoo', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 0),
-(10, 'Ibuprofen', 'Albion', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 0),
-(11, 'Amoxicillin', 'Amoxil', 'Bristol-Myers Squibb', 'Antibiotic', 'Capsule', '50mg', 10, 0),
-(12, 'Cetrizine', 'Zywoo', 'UCB', 'Antihistamine', 'Tablet', '10mg', 6.5, 0),
-(13, 'Metformin', 'Boehringer', 'Boehringer Ingelheim', 'Diabetes', 'Tablet', '500mg', 15, 0),
-(14, 'Lisinopril', 'Kaye', 'Merck', 'Hypertension', 'Tablet', '10mg', 7, 0),
-(15, 'Simvastatin', 'Zocor', 'Merck', 'Cholesterol', 'Tablet', '20mg', 12, 1),
-(16, 'Omeprazole', 'Pie', 'AstraZeneca', 'Acid Reducer', 'Capsule', '20mg', 9, 0),
-(17, 'Aspirin', 'Aspoo', 'Bayer', 'Pain Relief', 'Tablet', '81mg', 4, 0),
-(18, 'Diphenhydramine', 'Dorit', 'Pfizer', 'Antihistamine', 'Tablet', '25mg', 5.5, 0),
-(19, 'Paracetamol', 'Panadol', 'GSK', 'Pain Relief', 'Tablet', '500mg', 5, 0),
-(20, 'Ibuprofen', 'Ade', 'Pfizer', 'Pain Relief', 'Tablet', '400mg', 8, 0),
-(21, 'Amoxicillin', 'Ambrox', 'Bristol-Myers Squibb', 'Antibiotic', 'Capsule', '500mg', 100, 0),
-(22, 'Cetrizine', 'Zyrtec', 'UCB', 'Antihistamine', 'Tablet', '10mg', 6.5, 1),
-(23, 'Metformin', 'Glucophage', 'Boehringer Ingelheim', 'Diabetes', 'Tablet', '500mg', 15, 1),
-(24, 'Lisinopril', 'Prinivil', 'Merck', 'Hypertension', 'Tablet', '10mg', 7, 0),
-(25, 'Simvastatin', 'Zoom', 'Merck', 'Cholesterol', 'Tablet', '20mg', 12, 0),
-(26, 'Omeprazole', 'Prilosec', 'AstraZeneca', 'Acid Reducer', 'Capsule', '20mg', 9, 0),
-(27, 'Aspirin', 'Bayer', 'Bayer', 'Pain Relief', 'Tablet', '81mg', 400, 0),
-(28, 'Diphenhydramine', 'Benadryl', 'Pfizer', 'Antihistamine', 'Tablet', '25mg', 5.5, 0),
-(29, 'Loratadine', 'Claritin', 'Bristol-Myers Squibb', 'Antihistamine', 'Tablet', '10mg', 6, 0),
-(30, 'Naproxen', 'Aleve', 'Bayer', 'Pain Relief', 'Tablet', '250mg', 9.5, 0),
-(31, 'Fluticasone', 'Flonase', 'GSK', 'Nasal Spray', 'Spray', '50mcg', 14, 0),
-(32, 'Levothyroxine', 'Synthroid', 'AbbVie', 'Thyroid', 'Tablet', '50mcg', 11, 0),
-(33, 'Gabapentin', 'Neurontin', 'Pfizer', 'Neuropathic Pain', 'Capsule', '300mg', 13, 0),
-(34, 'Ranitidine', 'Zantac', 'Sanofi', 'Acid Reducer', 'Tablet', '150mg', 8.5, 0),
-(35, 'Hydrochlorothiazide', 'Microzide', 'Boehringer Ingelheim', 'Hypertension', 'Tablet', '25mg', 6, 0),
-(36, 'Sertraline', 'Zoloft', 'Pfizer', 'Antidepressant', 'Tablet', '50mg', 10.5, 0),
-(37, 'Tamsulosin', 'Flomax', 'Boeringer Ingelheim', 'BPH', 'Capsule', '0.4mg', 9, 0),
-(38, 'Montelukast', 'Singulair', 'Merck', 'Asthma', 'Tablet', '100mg', 11.5, 0),
-(39, 'Citalopram', 'Celexa', 'Lundbeck', 'Antidepressant', 'Tablet', '20mg', 9.5, 0),
-(40, 'Duloxetine', 'Cymbalta', 'Eli Lilly', 'Antidepressant', 'Capsule', '30mg', 12, 0),
-(41, 'Ointment', 'Trimycin', 'Unilab', 'Skin Care', 'Ointment', '10g', 290, 0),
-(42, 'Supplement', 'MX3', 'MX3', 'Supplement', 'Tablet', '50mg', 19, 0),
-(43, 'Cough Relief', 'HealthBest', 'HealthCorp', 'Cough Syrup', 'Syrup', '100mL', 53, 0),
-(44, 'Cold Syrup', 'NatureAid', 'NaturePharma', 'Cold Remedy', 'Syrup', '200mL', 1900, 0),
-(45, 'Energy Booster', 'FitLife', 'LifeCorp', 'Supplements', 'Tablet', '500mg', 100, 0),
-(46, 'Vitamins Plus', 'VitalCare', 'WellnessCorp', 'Vitamins', 'Tablet', '100mg', 150, 0),
-(47, 'Pain Reliever', 'MedXtra', 'MediHealth', 'Pain Relief', 'Tablet', '500mg', 50, 0),
-(48, 'Wipes', 'Beybiko', 'CleanCare', 'Wipes', 'Wet Wipes', '10 Pack', 5, 0),
-(49, 'Antiseptic Cream', 'CareFirst', 'FirstAid', 'Skin Care', 'Cream', '50g', 333, 0),
-(50, 'Disinfectant Wipes', 'CleanWell', 'CleanX', 'Wipes', 'Wet Wipes', '50 Pack', 555, 0);
+INSERT INTO `product` (`prod_id`, `prod_name`, `prod_brand`, `prod_manufacturer`, `med_type`, `prod_category`, `prod_form`, `prod_dosage`, `prod_price`, `prod_archive`) VALUES
+(1, 'Loperamide', 'Diatabs', 'Unilab', 'N/A', 'Drug', 'Tablet', '2 mg', 7.5, 0),
+(2, 'Ibuprofen', 'Advil', 'Wyeth', 'generic', 'Analgesics', 'Tablet', '200 mg', 10, 0),
+(3, 'Amoxicillin', 'Ammoron', 'Abiolex', 'branded', 'Antibiotic', 'Tablet', '250mg', 20, 0),
+(4, 'Carbocisteine', 'Solmux', 'Unilab', 'generic', 'Mucolytics', 'Tablet', '500mg', 12.31, 0),
+(5, 'Paracetamol', 'Neozep', 'Unilab', 'N/A', 'Analgesics', 'Syrup', '50 mL', 55, 0),
+(6, 'Losartan', 'Lifezar', 'Ritemed', 'generic', 'Antihypertensive', 'Tablet', '100mg', 25.25, 0),
+(7, 'Losartan', 'Angel-50', 'Ritemed', 'branded', 'Antihypertensive', 'Tablet', '50mg', 5.5, 0),
+(8, 'Losartan', 'Gensartan', 'Medinova', 'generic', 'Antihypertensive', 'Tablet', '50mg', 6, 0),
+(9, 'Paracetamol', 'Aigoo', 'GSK', 'generic', 'Pain Relief', 'Tablet', '500mg', 5, 0),
+(10, 'Ibuprofen', 'Albion', 'Pfizer', 'branded', 'Pain Relief', 'Tablet', '400mg', 8, 0),
+(11, 'Amoxicillin', 'Amoxil', 'Bristol-Myers Squibb', 'generic', 'Antibiotic', 'Capsule', '50mg', 10, 0),
+(12, 'Cetrizine', 'Zywoo', 'UCB', 'generic', 'Antihistamine', 'Tablet', '10mg', 6.5, 0),
+(13, 'Metformin', 'Boehringer', 'Boehringer Ingelheim', 'branded', 'Diabetes', 'Tablet', '500mg', 15, 0),
+(14, 'Lisinopril', 'Kaye', 'Merck', 'branded', 'Hypertension', 'Tablet', '10mg', 7, 0),
+(15, 'Simvastatin', 'Zocor', 'Merck', 'branded', 'Cholesterol', 'Tablet', '20mg', 12, 1),
+(16, 'Omeprazole', 'Pie', 'AstraZeneca', 'branded', 'Acid Reducer', 'Capsule', '20mg', 9, 0),
+(17, 'Aspirin', 'Aspoo', 'Bayer', 'branded', 'Pain Relief', 'Tablet', '81mg', 4, 0),
+(18, 'Diphenhydramine', 'Dorit', 'Pfizer', 'branded', 'Antihistamine', 'Tablet', '25mg', 5.5, 0),
+(19, 'Paracetamol', 'Panadol', 'GSK', 'N/A', 'Pain Relief', 'Tablet', '500mg', 5, 0),
+(20, 'Ibuprofen', 'Ade', 'Pfizer', 'branded', 'Pain Relief', 'Tablet', '400mg', 8, 0),
+(21, 'Amoxicillin', 'Ambrox', 'Bristol-Myers Squibb', 'generic', 'Antibiotic', 'Capsule', '500mg', 100, 0),
+(22, 'Cetrizine', 'Zyrtec', 'UCB', 'N/A', 'Antihistamine', 'Tablet', '10mg', 6.5, 1),
+(23, 'Metformin', 'Glucophage', 'Boehringer Ingelheim', 'generic', 'Diabetes', 'Tablet', '500mg', 15, 1),
+(24, 'Lisinopril', 'Prinivil', 'Merck', 'generic', 'Hypertension', 'Tablet', '10mg', 7, 0),
+(25, 'Simvastatin', 'Zoom', 'Merck', 'generic', 'Cholesterol', 'Tablet', '20mg', 12, 0),
+(26, 'Omeprazole', 'Prilosec', 'AstraZeneca', 'branded', 'Acid Reducer', 'Capsule', '20mg', 9, 0),
+(27, 'Aspirin', 'Bayer', 'Bayer', 'branded', 'Pain Relief', 'Tablet', '81mg', 400, 0),
+(28, 'Diphenhydramine', 'Benadryl', 'Pfizer', 'generic', 'Antihistamine', 'Tablet', '25mg', 5.5, 0),
+(29, 'Loratadine', 'Claritin', 'Bristol-Myers Squibb', 'branded', 'Antihistamine', 'Tablet', '10mg', 6, 0),
+(30, 'Naproxen', 'Aleve', 'Bayer', 'generic', 'Pain Relief', 'Tablet', '250mg', 9.5, 0),
+(31, 'Fluticasone', 'Flonase', 'GSK', 'branded', 'Nasal Spray', 'Spray', '50mcg', 14, 0),
+(32, 'Levothyroxine', 'Synthroid', 'AbbVie', 'branded', 'Thyroid', 'Tablet', '50mcg', 11, 0),
+(33, 'Gabapentin', 'Neurontin', 'Pfizer', 'branded', 'Neuropathic Pain', 'Capsule', '300mg', 13, 0),
+(34, 'Ranitidine', 'Zantac', 'Sanofi', 'generic', 'Acid Reducer', 'Tablet', '150mg', 8.5, 0),
+(35, 'Hydrochlorothiazide', 'Microzide', 'Boehringer Ingelheim', 'branded', 'Hypertension', 'Tablet', '25mg', 6, 0),
+(36, 'Sertraline', 'Zoloft', 'Pfizer', 'generic', 'Antidepressant', 'Tablet', '50mg', 10.5, 0),
+(37, 'Tamsulosin', 'Flomax', 'Boeringer Ingelheim', 'branded', 'BPH', 'Capsule', '0.4mg', 9, 0),
+(38, 'Montelukast', 'Singulair', 'Merck', 'branded', 'Asthma', 'Tablet', '100mg', 11.5, 0),
+(39, 'Citalopram', 'Celexa', 'Lundbeck', 'branded', 'Antidepressant', 'Tablet', '20mg', 9.5, 0),
+(40, 'Duloxetine', 'Cymbalta', 'Eli Lilly', 'branded', 'Antidepressant', 'Capsule', '30mg', 12, 0),
+(41, 'Ointment', 'Trimycin', 'Unilab', 'N/A', 'Skin Care', 'Ointment', '10g', 290, 0),
+(42, 'Supplement', 'MX3', 'MX3', 'generic', 'Supplement', 'Tablet', '50mg', 19, 0),
+(43, 'Cough Relief', 'HealthBest', 'HealthCorp', 'branded', 'Cough Syrup', 'Syrup', '100mL', 53, 0),
+(44, 'Cold Syrup', 'NatureAid', 'NaturePharma', 'generic', 'Cold Remedy', 'Syrup', '200mL', 1900, 0),
+(45, 'Energy Booster', 'FitLife', 'LifeCorp', 'branded', 'Supplements', 'Tablet', '500mg', 100, 0),
+(46, 'Vitamins Plus', 'VitalCare', 'WellnessCorp', 'branded', 'Vitamins', 'Tablet', '100mg', 150, 0),
+(47, 'Pain Reliever', 'MedXtra', 'MediHealth', 'generic', 'Pain Relief', 'Tablet', '500mg', 50, 0),
+(48, 'Wipes', 'Beybiko', 'CleanCare', 'branded', 'Wipes', 'Wet Wipes', '10 Pack', 5, 0),
+(49, 'Antiseptic Cream', 'CareFirst', 'FirstAid', 'branded', 'Skin Care', 'Cream', '50g', 333, 0),
+(50, 'Disinfectant Wipes', 'CleanWell', 'CleanX', 'branded', 'Wipes', 'Wet Wipes', '50 Pack', 555, 0);
 
 -- --------------------------------------------------------
 
@@ -1164,6 +1165,18 @@ ALTER TABLE `transactions`
 --
 ALTER TABLE `user_history`
   ADD CONSTRAINT `user_history to user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+DELIMITER $$
+--
+-- Events
+--
+CREATE DEFINER=`root`@`localhost` EVENT `update_expired_batches` ON SCHEDULE EVERY 1 HOUR STARTS '2024-10-16 03:53:51' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+    UPDATE batch
+    SET batch_status = 'EXPIRED'
+    WHERE expiry_date < NOW() AND batch_status IS NULL;
+END$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

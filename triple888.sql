@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 14, 2024 at 03:58 AM
+-- Generation Time: Oct 15, 2024 at 05:40 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -44,8 +44,26 @@ INSERT INTO `batch` (`batch_id`, `prod_id`, `batch_number`, `expiry_date`, `batc
 (1, 4, 2001, '2024-09-30', 300, 'expired'),
 (2, 2, 2001, '2024-09-25', 175, 'sold'),
 (3, 47, 2002, '2024-12-06', 75, NULL),
-(4, 44, 2002, '2024-11-06', 5, NULL),
-(5, 40, 2003, '2024-10-30', 60, NULL);
+(4, 44, 2002, '2024-11-06', 5, 'sold'),
+(5, 40, 2003, '2024-10-30', 60, NULL),
+(2004, 41, NULL, '2024-10-31', 200, NULL),
+(2005, 41, NULL, '2024-10-31', 200, NULL),
+(2006, 3, NULL, '2024-10-25', 20, NULL),
+(2007, 3, NULL, '2024-11-13', 100, NULL),
+(2008, 3, NULL, '2024-11-13', 100, NULL),
+(2009, 3, NULL, '2024-10-31', 80, NULL),
+(2010, 3, NULL, '2024-11-28', 80, NULL),
+(2011, 44, NULL, '2024-10-19', 5, NULL),
+(2012, 34, NULL, '2024-11-30', 25, NULL),
+(2013, 25, NULL, '2024-11-30', 100, NULL),
+(2014, 15, NULL, '2024-12-31', 50, NULL),
+(2015, 15, NULL, '2024-12-31', 50, NULL),
+(2016, 15, NULL, '2024-12-31', 50, NULL),
+(2017, 15, NULL, '2024-12-31', 50, NULL),
+(2018, 15, NULL, '2024-12-31', 50, NULL),
+(2019, 15, NULL, '2024-12-31', 50, NULL),
+(2020, 15, NULL, '2024-10-31', 50, NULL),
+(2021, 25, NULL, '2024-11-29', 50, NULL);
 
 -- --------------------------------------------------------
 
@@ -106,7 +124,10 @@ INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_contact`, `dis
 (42, '', '', 0),
 (43, '', '', 0),
 (44, '', '', 0),
-(45, '', '', 0);
+(45, '', '', 0),
+(46, '', '', 0),
+(47, '', '', 97676767),
+(48, '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -127,31 +148,31 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`inventory_id`, `prod_id`, `quantity`, `threshold`, `last_updated`) VALUES
-(2, 5, 214, 250, ''),
+(2, 5, 202, 250, ''),
 (3, 36, 10, 25, NULL),
-(4, 1, 25, 50, NULL),
+(4, 1, 0, 50, NULL),
 (5, 2, 81, 100, NULL),
-(6, 3, 120, NULL, NULL),
-(7, 4, 100, 100, NULL),
+(6, 3, 199, NULL, NULL),
+(7, 4, 99, 100, NULL),
 (9, 6, 147, NULL, NULL),
 (11, 8, 25, NULL, NULL),
 (12, 9, 55, 55, NULL),
 (13, 10, 120, 50, NULL),
-(14, 11, 57, 100, NULL),
+(14, 11, 65, 100, NULL),
 (15, 12, 81, NULL, NULL),
 (16, 13, 40, NULL, NULL),
 (17, 14, 50, NULL, NULL),
-(18, 15, 32, NULL, NULL),
+(18, 15, 382, NULL, NULL),
 (19, 16, 63, NULL, NULL),
 (20, 17, 0, NULL, NULL),
 (21, 18, 86, NULL, NULL),
 (22, 19, 0, NULL, NULL),
 (23, 20, 127, NULL, NULL),
-(24, 21, 68, NULL, NULL),
+(24, 21, 68, 50, NULL),
 (25, 22, 67, NULL, NULL),
 (26, 23, 112, NULL, NULL),
 (27, 24, 136, NULL, NULL),
-(28, 25, 100, NULL, NULL);
+(28, 25, 250, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -328,7 +349,10 @@ INSERT INTO `receipt` (`receipt_no`, `transaction_id`) VALUES
 (69, 136),
 (70, 137),
 (71, 138),
-(72, 139);
+(72, 139),
+(73, 140),
+(74, 141),
+(75, 142);
 
 -- --------------------------------------------------------
 
@@ -484,7 +508,10 @@ INSERT INTO `sales` (`sale_id`, `transaction_id`) VALUES
 (193, 136),
 (194, 137),
 (195, 138),
-(196, 139);
+(196, 139),
+(197, 140),
+(198, 141),
+(199, 142);
 
 -- --------------------------------------------------------
 
@@ -720,7 +747,11 @@ INSERT INTO `sales_items` (`sale_item_id`, `sale_id`, `prod_id`, `quantity_sold`
 (280, 193, 36, 1, 10.50),
 (281, 194, 20, 9, 8.00),
 (282, 195, 22, 7, 6.50),
-(283, 196, 22, 20, 6.50);
+(283, 196, 22, 20, 6.50),
+(284, 197, 5, 10, 55.00),
+(285, 198, 5, 2, 55.00),
+(286, 199, 3, 1, 20.00),
+(287, 199, 4, 1, 12.31);
 
 -- --------------------------------------------------------
 
@@ -881,7 +912,10 @@ INSERT INTO `transactions` (`transaction_id`, `transaction_date`, `user_id`, `pa
 (136, '2024-10-14', 4, 'Cash', 10.50, 11.00, 42),
 (137, '2024-10-14', 3, 'Cash', 72.00, 100.00, 43),
 (138, '2024-10-14', 3, 'Cash', 45.50, 50.00, 44),
-(139, '2024-10-14', 3, 'Cash', 130.00, 150.00, 45);
+(139, '2024-10-14', 3, 'Cash', 130.00, 150.00, 45),
+(140, '2024-10-14', 3, 'Cash', 550.00, 600.00, 46),
+(141, '2024-10-14', 3, 'Cash', 96.80, 100.00, 47),
+(142, '2024-10-14', 3, 'Cash', 32.31, 35.00, 48);
 
 -- --------------------------------------------------------
 
@@ -910,7 +944,7 @@ INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `birthday`, `phone`, `
 (1, 'Leoj ', 'Tripole', NULL, '09055501896', 'yong.tripole@gmail.com', 'lthrdoublee', 'tripole23', 'Admin', 1),
 (2, 'Bart', 'Mangum', NULL, '12312312345', 'bart@gmail.com', 'adminusername', 'adminpassword', 'Admin', 1),
 (3, 'Paulo', 'Ledem', '2024-10-10', '90876578215', 'true.2356@gmail.com', 'usercashier', 'usercashier', 'User', 1),
-(4, 'Paulo', 'Medel', NULL, '66666666677', '66666@gmail.com', 'userpharmacist', 'userpharmacist', 'User', 1),
+(4, 'Paulo', 'Medel', NULL, '66666666677', '66666@gmail.com', 'userpharmacist', 'userpharmacist', 'User', 0),
 (5, 'Andrea Nicole', 'Caparas', NULL, '14366891011', 'andreacaps17@gmail.com', 'andreacaps17', NULL, 'Admin', 0),
 (6, 'Keanu', 'Reeves', '1998-02-23', '99999999999', 'breathtaking@gmail.com', 'superadmin', 'superadmin', 'Admin', 1),
 (7, 'Blocked', 'User ', NULL, '11122233344', 'blocked+user@gmail.com', 'inactivelang', NULL, 'User', 0);
@@ -1015,19 +1049,19 @@ ALTER TABLE `user_history`
 -- AUTO_INCREMENT for table `batch`
 --
 ALTER TABLE `batch`
-  MODIFY `batch_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `batch_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2022;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `customer_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `inventory_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `inventory_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -1045,25 +1079,25 @@ ALTER TABLE `product_history`
 -- AUTO_INCREMENT for table `receipt`
 --
 ALTER TABLE `receipt`
-  MODIFY `receipt_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `receipt_no` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `sale_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
+  MODIFY `sale_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 
 --
 -- AUTO_INCREMENT for table `sales_items`
 --
 ALTER TABLE `sales_items`
-  MODIFY `sale_item_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=284;
+  MODIFY `sale_item_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=288;
 
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `transaction_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT for table `user`
